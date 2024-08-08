@@ -27,6 +27,10 @@ docker build -t lennard/webserver .
 ```bash
 docker run --name container_name -p 80:8080 -d lennard/webserver
 ```
+## Connect to shell of running container
+```bash
+docker exec -it <container_name> sh
+```
 ## Create Network Bridge
 ```bash
 docker network create network_name --driver='bridge'
