@@ -18,5 +18,13 @@ docker build -t lennard/webserver .
 ```
 ## Run own Webserver Container
 ```bash
-docker run -p 80:8080 -d lennard/webserver
+docker run --name container_name -p 80:8080 -d lennard/webserver
+```
+## Create Network Bridge
+```bash
+docker network create network_name --driver='bridge'
+```
+## Connect Container to Network
+```bash
+docker network connect network_name container_name
 ```
