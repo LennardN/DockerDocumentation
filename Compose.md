@@ -41,6 +41,6 @@ docker compose up
 #### To see all options, visit [the official documentation](https://docs.docker.com/reference/cli/docker/compose/up/)
 ```bash
 -d, --detach                  [Run containers in the background]
---abort-on-container-exit	    [Stops all containers if any container was stopped. Incompatible with -d]
---pull	<policy>	            [Pull image before running ("always"|"missing"|"never")]
+--abort-on-container-exit     [Stops all containers if any container was stopped. Incompatible with -d]
+--pull	<policy>              [Pull image before running ("always"|"missing"|"never")]
 ```
