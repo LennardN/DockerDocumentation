@@ -13,13 +13,6 @@ docker exec -it container_name mysql -p -e 'SELECT * FROM testdb.testtable'
 ```bash
 docker volume create dbvolume
 ```
-## Define your Dockerfile
-```bash
-FROM <source_image>
-RUN <command>
-WORKDIR <path>
-COPY <path_on_host> <path_on_guest>
-```
 ## Build own Webserver Image
 ```bash
 docker build -t lennard/webserver .
