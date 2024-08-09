@@ -1,8 +1,6 @@
 # Docker Compose:
 ## Docker Compose is a tool used to define and manage multi-container Docker applications. It simplifies the process of setting up, configuring, and running multiple Docker containers that work together as part of a single application.
-#### Start by creating a directory containung the build contexts of all the neccesary containers for your application.
-#### In the next step you're going to create a file called: docker-compose.yml
-#### Example for such a file can be seen below.
+#### Start by creating a directory containung the build contexts of all the neccesary containers for your application. In the next step you're going to create a file called: docker-compose.yml Example for such a file can be seen below.
 ```yaml
     build: <path_to_webserver>
     container_name: <webserver_name>
@@ -34,4 +32,15 @@ volumes:
 
 networks:
   <network_name>: {}
+```
+#### After successfully creating your docker-compose.yml file, you can start the application and all its containers by running:
+```bash
+docker compose up
+```
+### Following options are available:
+### To see all options, visit [the official documentation](https://docs.docker.com/reference/cli/docker/compose/up/)
+```bash
+-d, --detach [Run containers in the background]
+--abort-on-container-exit	 [Stops all containers if any container was stopped. Incompatible with -d]
+--pull	<policy>	[Pull image before running ("always"|"missing"|"never")]
 ```
