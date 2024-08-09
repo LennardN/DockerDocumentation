@@ -1,34 +1,38 @@
-# Docker Compose Documentationservices:
+# Docker Compose:
+## Docker Compose is a tool used to define and manage multi-container Docker applications.
+## It simplifies the process of setting up, configuring, and running multiple Docker containers that work together as part of a single application.
+### Start by creating a directory containung the build contexts of all the neccesary containers for your application.
+### In the next step you're going to create a file called: docker-compose.yml
+### Example for such a file can be seen below.
 ```yaml
-  webserver:
-    build: ./testWebserver
-    container_name: webserver
+    build: <path_to_webserver>
+    container_name: <webserver_name>
     environment:
-      DATABASE_CONNECTION_HOST: mysqlserver
-      DATABASE_CONNECTION_USER: root
-      DATABASE_CONNECTION_NAME: testdb
-      DATABASE_CONNECTION_PASSWORD: 123
+      DATABASE_CONNECTION_HOST: <mysqlserver_name>
+      DATABASE_CONNECTION_USER: <username>
+      DATABASE_CONNECTION_NAME: <db_name>
+      DATABASE_CONNECTION_PASSWORD: <passwd>
     ports:
-      - "80:8080"
+      - "<host_port>:<guest_port>"
     networks:
-      - testnetwork
+      - <network_name>
 
   database:
-    build: ./testMysqlserver
-    container_name: mysqlserver
+    build: <path_to_mysql_server>
+    container_name: <mysqlserver_name>
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: true
-      MYSQL_DATABASE: testdb
-      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: <db_name>
+      MYSQL_ROOT_PASSWORD: <passwd>
     volumes:
-      - dbvolume:/var/lib/mysql:rw
+      - <volume_name>:<path_in_container>:<permissions>
     networks:
-      - testnetwork
+      - <network_name>
 
 volumes:
-  dbvolume:
+  <volume_name>:
     driver: local
 
 networks:
-  testnetwork: {}
+  <network_name>: {}
 ```
