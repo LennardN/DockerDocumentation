@@ -1,9 +1,8 @@
 # Docker Compose:
-## Docker Compose is a tool used to define and manage multi-container Docker applications.
-## It simplifies the process of setting up, configuring, and running multiple Docker containers that work together as part of a single application.
-### Start by creating a directory containung the build contexts of all the neccesary containers for your application.
-### In the next step you're going to create a file called: docker-compose.yml
-### Example for such a file can be seen below.
+## Docker Compose is a tool used to define and manage multi-container Docker applications. It simplifies the process of setting up, configuring, and running multiple Docker containers that work together as part of a single application.
+#### Start by creating a directory containung the build contexts of all the neccesary containers for your application.
+#### In the next step you're going to create a file called: docker-compose.yml
+#### Example for such a file can be seen below.
 ```yaml
     build: <path_to_webserver>
     container_name: <webserver_name>
