@@ -44,3 +44,7 @@ docker compose up
 --abort-on-container-exit     [Stops all containers if any container was stopped. Incompatible with -d]
 --pull	<policy>              [Pull image before running ("always"|"missing"|"never")]
 ```
+### If you choose to run the application in detached mode, you can stop it by using
+```bash
+docker compose down
+```
