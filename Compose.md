@@ -39,10 +39,12 @@ docker compose up
 ```
 ### Following options are available:
 #### To see all options, visit [the official documentation](https://docs.docker.com/reference/cli/docker/compose/up/)
-| :-----------------------: | :-----------------------------------------------------------------------: |
-|-d, --detach               | [Run containers in the background]                                        |
-|--abort-on-container-exit  | [Stops all containers if any container was stopped. Incompatible with -d] |
-|--pull	<policy>            | [Pull image before running ("always"|"missing"|"never")]                  |
+| Option                    | Description                                                          |
+|---------------------------|----------------------------------------------------------------------|
+| `-d`, `--detach`          | Run containers in the background.                                    |
+| `--abort-on-container-exit` | Stops all containers if any container is stopped. Incompatible with `-d`. |
+| `--pull <policy>`         | Pull the image before running. The policy can be `"always"`, `"missing"`, or `"never"`. |
+
 ### If you choose to run the application in detached mode, you can stop it by using
 ```bash
 docker compose down
