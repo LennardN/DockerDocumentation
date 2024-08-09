@@ -8,7 +8,9 @@ docker run --name container_name -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123 -e MYSQ
 ```bash
 docker exec -it container_name mysql -p -e 'SELECT * FROM testdb.testtable'
 ```
-"-it"  
+`-i` keep Standart Output (Console) open even if not attached
+
+`-t` opens TTY from the container    
 ## Create DB Volume
 ```bash
 docker volume create dbvolume
