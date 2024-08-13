@@ -25,3 +25,27 @@ docker service create --name <registry_name> -e "REGISTRY_STORAGE_DELETE_ENABLED
 ``` 
 `REGISTRY_STORAGE_DELETE_ENABLED=true` enables the deletion of images in the Docker registry, which is otherwise disabled by default.
 `REGISTRY_VALIDATION_DISABLED=true` is set to disable validation of the registry configuration.
+Check registry service status
+```bash
+docker service ls
+```
+Upload your images, with the use of your compose file this will be very simple.
+```bash
+docker compose push
+```
+A swarm running the containers defined in your compose file is called a stack, go ahead and deploy your stack.
+```bash
+docker stack deploy --compose-file compose.yml <stack_name>
+```
+Bring the stack down:
+```bash
+docker stack rm <stack_name>
+```
+Bring the service down:
+```bash
+docker service rm <service_name>
+```
+Leave swarm:
+```bash
+docker swarm leave --force
+```
