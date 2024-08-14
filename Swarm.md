@@ -23,9 +23,6 @@ The best practice is to create a registry on your manager, you can create a regi
 ```bash
 docker run -d --restart=always --name registry -v registryvolume:/var/lib/registry -p 5000:5000 registry:2
 ``` 
-```bash
-docker service ls
-```
 Upload your images, with the use of your compose file this will be very simple.
 ```bash
 docker compose push
