@@ -35,7 +35,7 @@ docker compose push
 ```
 A swarm running the containers defined in your compose file is called a stack, go ahead and deploy your stack.
 ```bash
-docker stack deploy --compose-file compose.yml <stack_name>
+docker stack deploy --compose-file compose.yaml <stack_name>
 ```
 Bring the stack down:
 ```bash
