@@ -23,9 +23,6 @@ The best practice is to create a registry on your manager, you can create a regi
 ```bash
 docker run -d --restart=always --name registry -v registryvolume:/var/lib/registry -p 5000:5000 registry:2
 ``` 
-`REGISTRY_STORAGE_DELETE_ENABLED=true` enables the deletion of images in the Docker registry, which is otherwise disabled by default.
-`REGISTRY_VALIDATION_DISABLED=true` is set to disable validation of the registry configuration.
-Check registry service status
 ```bash
 docker service ls
 ```
