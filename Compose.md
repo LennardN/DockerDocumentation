@@ -4,38 +4,41 @@ It simplifies the process of setting up, configuring, and running multiple Docke
 Start by creating a directory containung the build contexts of all the neccesary containers for your application.
 In the next step you're going to create a file called: docker-compose.yml Example for such a file can be seen below.
 ```yaml
-    build: <path_to_webserver>
-    container_name: <webserver_name>
+services:
+  webserver:
+    build: ./testWebserver
+    image: 141.51.134.158:5000/testwebserver
     environment:
-      DATABASE_CONNECTION_HOST: <mysqlserver_name>
-      DATABASE_CONNECTION_USER: <username>
-      DATABASE_CONNECTION_NAME: <db_name>
-      DATABASE_CONNECTION_PASSWORD: <passwd>
+      DATABASE_CONNECTION_HOST: userapp_database
+      DATABASE_CONNECTION_USER: root
+      DATABASE_CONNECTION_NAME: testdb
+      DATABASE_CONNECTION_PASSWORD: 123
     ports:
-      - "<host_port>:<guest_port>"
+      - "80:8080"
     networks:
-      - <network_name>
+      - testnetwork
 
   database:
-    build: <path_to_mysql_server>
-    container_name: <mysqlserver_name>
+    build: ./testMysqlserver
+    image: 141.51.134.158:5000/testsqlserver
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: true
-      MYSQL_DATABASE: <db_name>
-      MYSQL_ROOT_PASSWORD: <passwd>
+      MYSQL_DATABASE: testdb
+      MYSQL_ROOT_PASSWORD: 123
     volumes:
-      - <volume_name>:<path_in_container>:<permissions>
+      - dbvolume:/var/lib/mysql:rw
     networks:
-      - <network_name>
+      - testnetwork
 
 volumes:
-  <volume_name>:
+  dbvolume:
     driver: local
 
 networks:
-  <network_name>: {}
+  testnetwork: 
+    driver: overlay
+    name: backendnetwork
 ```
-### After successfully creating your docker-compose.yml file, you can start the application and all its containers by running:
+### After successfully creating your docker-compose.yaml file, you can start the application and all its containers by running:
 ```bash
 docker compose up
 ```
